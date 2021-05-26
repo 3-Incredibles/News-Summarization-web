@@ -7,7 +7,7 @@ import torch
 # ]
 
 def summarize(src_text):
-    model_name = 'google/pegasus-xsum'
+    model_name = 'google/pegasus-multi_news'
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print("DEVICE \n", device)
     tokenizer = PegasusTokenizer.from_pretrained(model_name)
@@ -22,6 +22,6 @@ def summarize(src_text):
 
     translated = model.generate(**batch)
     tgt_text = tokenizer.batch_decode(translated, skip_special_tokens=True)
-    return tgt_text[0]
+    return "".join(tgt_text)
 
 #assert tgt_text[0] == "California's largest electricity provider has turned off power to hundreds of thousands of customers."

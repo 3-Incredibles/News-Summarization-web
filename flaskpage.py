@@ -3,7 +3,7 @@ from speech_to_text import get_large_audio_transcription
 # from summarization import summarize
 from something import summarize
 
-path = "content/male.wav"
+path = "content/Gravitas Plus Who will win the Streaming Wars.wav"
 whole_text = get_large_audio_transcription(path)
 
 summ_text = str(summarize(whole_text))
