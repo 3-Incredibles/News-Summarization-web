@@ -56,8 +56,8 @@ function showFile() {
         let fileReader = new FileReader(); //creating new FileReader object
         fileReader.onload = () => {
             let fileURL = fileReader.result; //passing user file source in fileURL variable
-            audioFile = fileURL
-                //creating an audio tag and passing user selected file source inside src attribute
+            audioFile = fileURL;
+            //creating an audio tag and passing user selected file source inside src attribute
             let audTag = `<audio controls><source src="${fileURL}" type="audio/wav">Your browser does not support the audio element.</audio>`;
 
             dropArea.innerHTML = audTag; //adding that created audio tag inside dropArea container
@@ -65,7 +65,7 @@ function showFile() {
         }
         fileReader.readAsDataURL(file);
     } else {
-        alert("Please upload a WAV File!");
+        alert("Please upload a WAV or a MPEG File!");
         dropArea.classList.remove("active");
         dragText.textContent = "Drag & Drop to Upload File";
     }
@@ -80,37 +80,34 @@ summ_button.onclick = () => {
 
     trans.style.display = 'flex';
     summary.style.display = 'flex';
-    readText('C:/xampp/htdocs/Summarization/content/Speech_to_Text_Test_Document.txt');
-    displaySummary('../content/Speech_to_Text_Test_Documentation.txt');
-
     //displaySummary("Hakuna Matata");
 }
 
 
 //filePath = ;
 
-function readText(filePath) {
+// function readText(filePath) {
 
-    var output = ""; //placeholder for text output
-    if (filePath.files && filePath.files[0]) {
-        alert("hehe")
-        reader.onload = function(e) {
-            output = e.target.result;
-            displaySummary(output);
-        }; //end onload()
-        reader.readAsText(filePath.files[0]);
-    }
-    return true;
-}
+//     var output = ""; //placeholder for text output
+//     if (filePath.files && filePath.files[0]) {
+//         alert("hehe")
+//         reader.onload = function(e) {
+//             output = e.target.result;
+//             displaySummary(output);
+//         }; //end onload()
+//         reader.readAsText(filePath.files[0]);
+//     }
+//     return true;
+// }
 
-function displayTranscript(txt) {
-    var el = document.getElementById('trans_para');
-    el.innerHTML = txt;
-    return true;
-}
+// function displayTranscript(txt) {
+//     var el = document.getElementById('trans_para');
+//     el.innerHTML = txt;
+//     return true;
+// }
 
-function displaySummary(txt) {
-    var el = document.getElementById('sum_para');
-    el.innerHTML = txt;
-    return true;
-}
+// function displaySummary(txt) {
+//     var el = document.getElementById('sum_para');
+//     el.innerHTML = txt;
+//     return true;
+// }

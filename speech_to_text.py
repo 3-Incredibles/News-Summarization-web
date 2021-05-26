@@ -3,12 +3,16 @@ import os
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
-# create a speech recognition object
+# # ust for testing
+# def hello(str):
+#     return "HEllo World!!"
 r = sr.Recognizer()
 
 # a function that splits the audio file into chunks
 # and applies speech recognition
 def get_large_audio_transcription(path):
+    # create a speech recognition object
+
     """
     Splitting the large audio file into chunks
     and apply speech recognition on each of these chunks
@@ -49,18 +53,14 @@ def get_large_audio_transcription(path):
                 whole_text += "\n"+text
                 
     # return the text for all chunks detected
-    
+    print("CONVERSION COMPLETE")
     return whole_text
 
 
-
-path = "content/example.wav"
-file1 = open("content/Speech_to_Text_Test_Document.txt","w")
-file1.write(get_large_audio_transcription(path))
-
 if __name__ =="__main__":
+    path = "content/example.wav"
+    file1 = open("content/Speech_to_Text_Test_Document.txt","w")
+    file1.write(get_large_audio_transcription(path))
     file1 = open("content/Speech_to_Text_Test_Document.txt","r")
     print(file1.read())
-    file1.close()
-else:
     file1.close()
